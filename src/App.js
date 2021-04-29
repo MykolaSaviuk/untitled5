@@ -1,26 +1,40 @@
-import Car from "./component/car";
+import './App.css'
+import User from "./component/user/User";
+import {useState} from "react";
 
-export default function App() {
+let usersList = [
+    {name: 'vasya', age: 31, isMarried: false},
+    {name: 'kolya', age: 29, isMarried: true},
+    {name: 'olya', age: 28, isMarried: false},
+    {name: 'max', age: 30, isMarried: true},
+    {name: 'anya', age: 31, isMarried: false},
+    {name: 'oleg', age: 28, isMarried: false},
+    {name: 'andrey', age: 29, isMarried: true},
+    {name: 'masha', age: 30, isMarried: true},
+    {name: 'olya', age: 231, isMarried: false},
+    {name: 'max', age: 100, isMarried: true}
+];
+
+function App() {
+
+   let [users,setUsers] = useState(usersList);
+
+   const deleteUser = () => {
+        users.pop();
+   setUsers([...users]);
+       console.log(users);
+    };
+
     return (
         <div>
+            {
+                users.map((value, index) => <User key={index} {...value}/>)
 
-            <Car
-                model={'BMW'}
-                description={'super get'}
-                power={256}
-                volume={3}
-            />
-            <Car model={'Dodge'}
-                 description={'sX5 electro car '}
-                 power={300}
-                 volume={5}
-            />
-            <Car model={'VIPER'}
-                 description={'SX8 Super get electro'}
-                 power={400}
-                 volume={8}
-            />
+            }
+            <button onClick={deleteUser}>deleteuser</button>
 
         </div>
     );
-};
+}
+
+export default App;
