@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Car from "./component/car";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default function App() {
+    return (
+        <div>
 
-export default App;
+            <Car
+                model={'BMW'}
+                description={'super get'}
+                power={256}
+                volume={3}
+            />
+            <Car model={'Dodge'}
+                 description={'sX5 electro car '}
+                 power={300}
+                 volume={5}
+            />
+            <Car model={'VIPER'}
+                 description={'SX8 Super get electro'}
+                 power={400}
+                 volume={8}
+            />
+
+        </div>
+    );
+};
